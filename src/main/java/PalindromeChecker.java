@@ -38,7 +38,16 @@ public void tester()
 public boolean palindrome(String word)
 {
   //your code here
-  return false;
+  word = strip(word);
+  System.out.println(word);
+  int i = 0;
+  int d = word.length()-1;
+  while(i <= d) {
+      if (word.charAt(i) != word.charAt(d)) return false;
+      i++;
+      d--;
+  }
+  return true;
 }
 public String reverse(String str)
 {
@@ -46,4 +55,11 @@ public String reverse(String str)
     //your code here
     return sNew;
 }
+  private String strip(String s) {
+    String buf = "";
+    for (int i = 0; i < s.length(); i++) {
+      if (Character.isAlphabetic((int) s.charAt(i))) buf = buf + Character.toLowerCase(s.charAt(i));
+    }
+    return buf;
+  }
 }
